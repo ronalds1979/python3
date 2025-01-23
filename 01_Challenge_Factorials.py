@@ -9,14 +9,12 @@ def factorial(num):
     result = num * (num-1)
     return loop_fact(a,result)
 
-
 class Process:
     # __init__ function is a special one, stand for initialization. It is called whenever an instance of the class is created
     # the variable self is the specific instance of the class after we have initialized it
     # self represent the instances of the class. These classes instances are the objects.
     # the variable (num) inside the class are the attributes of the objects
     # the function (factorial) inside the class are the methods. The dog object has the method speak
-
     def __init__(self):
         self.nothing = 1
     def factorial(self,num):
