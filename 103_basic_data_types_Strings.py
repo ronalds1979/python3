@@ -31,6 +31,13 @@ print (f'my number is {5} and twice that is {2*5}') #use a arithmetic operation
 print (f'Pi is {math.pi}') #call a function
 print (f'Pi is {math.pi:.2f}') #call a function and format to 2 decimals
 print('Pi is: {}' .format(math.pi)) #old format before Python version 3.6
+print(f'string followed by a int, in this case 5 {5}')
+print(f'string followed by a string, in this case text = {'text'}')
+print(f'string followed by a float, in this case 1.14 = {1.14}')
+print(f'string followed by a arithmetic operation, in this case 9/5 = {9 / 5}')
+print(f'string followed by a arithmetic operation, in this case 9*5 = {9 * 5}')
+print(f'string followed by a arithmetic operation, in this case 2 ** 3 = {2 ** 3}')
+print(f'string followed by a function, in this case str(5) {str(5)}')
 
 space_lines()
 print ('Formating')

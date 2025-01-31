@@ -1,0 +1,113 @@
+print (
+'''This code defines a class Process that includes methods to check if a string is a valid hexadecimal number and to convert a hexadecimal number to 
+its decimal equivalent. The hexToDec method handles hexadecimal numbers of up to 3 characters in length. 
+The example usage at the end demonstrates how to use the Process class to 
+convert the hexadecimal number 'A2' to its decimal equivalent and validate the result.'''
+)
+
+# Dictionary to map hexadecimal characters to their decimal values
+hexhexnums = {
+    '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
+    'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15
+}
+
+class Process:
+    def __init__(self):
+        # Placeholder attribute
+        self.nothing = 1
+
+     # Methods to calculate the positional value of a hexadecimal digit
+    def pos0(digit):
+        return digit * 1
+    def pos1(digit):
+        return digit * 16
+    def pos2(digit):
+        return digit * 256
+    def pos3(digit):
+        return digit * 4096
+    
+    # Method to check if a string is a valid hexadecimal number
+    def is_Hex(message):
+        lenght_message = len(message)
+        if lenght_message == 0:
+            return False
+        if lenght_message >= 1:
+            user_string = message
+            list_of_output = []
+            for letter in user_string:
+                if letter in hexhexnums:
+                    list_of_output.append(True)
+                else:
+                    list_of_output.append(False)
+            return list_of_output
+
+    # Method to convert a hexadecimal number to its decimal equivalent        
+    def hexToDec(self,num):
+        lenght = len(num)
+        if False in Process.is_Hex(num):
+                return 'None'
+        else:
+            if lenght > 4:
+                return 'None max 4 char'
+            if lenght == 1:
+                if False in Process.is_Hex(num):
+                    return 'None'
+                else:
+                    #return 'this line'
+                    #return Process.is_Hex(num)
+                    return (hexhexnums[str(num.upper())])
+            if lenght == 2:
+                if False in Process.is_Hex(num):
+                    return 'None'
+                else:
+                    user_string = num
+                    list_of_output = []
+                    for letter in user_string:
+                        list_of_output.append((Process.pos0((hexhexnums[str(letter.upper())]))))
+                    return (Process.pos1(list_of_output[0]))+(list_of_output[1])
+
+            if lenght == 3:
+                if False in Process.is_Hex(num):
+                    return 'None'
+                else:
+                    user_string = num
+                    list_of_output = []
+                    for letter in user_string:
+                        list_of_output.append((Process.pos0((hexhexnums[str(letter.upper())]))))
+                    return (Process.pos2(list_of_output[0]))+(Process.pos1(list_of_output[1]))+(list_of_output[2])
+
+
+            else:
+                return 'None'
+        
+# Example usage
+
+print ('*********************')
+print ('example usage')
+print ('*********************')
+print ('')
+Answer = Process()
+hexnum = 'C'
+result = Answer.hexToDec(hexnum)
+print ('Result is:')
+print (result)
+print ('*********************')
+print ('')
+# Validation of the result
+print ('validation of the result')
+print ('*********************')
+print ('')
+##print (int(hexnum, 16))
+
+
+## reference code
+
+#a_string="abcd"
+#for letter in a_string:
+#    print (letter)
+
+#user_string = raw_input()
+#list_of_output = []
+#for letter in user_string:
+#   list_of_output.append((letter))
+#output_string = "".join(list_of_output)
