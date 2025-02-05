@@ -18,47 +18,55 @@ class Process:
 
      # Methods to calculate the positional value of a hexadecimal digit
     def pos0(digit):
-        return digit * 1
+        return digit * 1 # 16 ** 0
     def pos1(digit):
-        return digit * 16
+        return digit * 16 # 16 ** 1
     def pos2(digit):
-        return digit * 256
+        return digit * 256 # 16 ** 2
     def pos3(digit):
-        return digit * 4096
-    
+        return digit * 4096 # 16 ** 3
+    def pos4(digit):
+        return digit * 65536 # 16 ** 4
+    def pos5(digit):
+        return digit * 1048576 # 16 ** 5
+    def pos6(digit):
+        return digit * 16777216 # 16 ** 6
     # Method to check if a string is a valid hexadecimal number
     def is_Hex(message):
         lenght_message = len(message)
         if lenght_message == 0:
             return False
         if lenght_message >= 1:
-            user_string = message
+            user_string = message.upper() # in case we have it not uppercase the validation does not work
+            #print (lenght_message)
             list_of_output = []
+            #print (list_of_output)
             for letter in user_string:
                 if letter in hexhexnums:
                     list_of_output.append(True)
                 else:
                     list_of_output.append(False)
+            print (list_of_output)
             return list_of_output
 
     # Method to convert a hexadecimal number to its decimal equivalent        
     def hexToDec(self,num):
         lenght = len(num)
         if False in Process.is_Hex(num):
-                return 'None'
+                return 'None is Hex'
         else:
-            if lenght > 4:
-                return 'None max 4 char'
+            if lenght > 7:
+                return 'None max 5 char'
             if lenght == 1:
                 if False in Process.is_Hex(num):
-                    return 'None'
+                    return 'None =1 and false'
                 else:
                     #return 'this line'
                     #return Process.is_Hex(num)
                     return (hexhexnums[str(num.upper())])
             if lenght == 2:
                 if False in Process.is_Hex(num):
-                    return 'None'
+                    return 'None =2 and false'
                 else:
                     user_string = num
                     list_of_output = []
@@ -68,7 +76,7 @@ class Process:
 
             if lenght == 3:
                 if False in Process.is_Hex(num):
-                    return 'None'
+                    return 'None = 3 and false'
                 else:
                     user_string = num
                     list_of_output = []
@@ -76,6 +84,46 @@ class Process:
                         list_of_output.append((Process.pos0((hexhexnums[str(letter.upper())]))))
                     return (Process.pos2(list_of_output[0]))+(Process.pos1(list_of_output[1]))+(list_of_output[2])
 
+            if lenght == 4:
+                if False in Process.is_Hex(num):
+                    return 'None = 4 and false'
+                else:
+                    user_string = num
+                    list_of_output = []
+                    for letter in user_string:
+                        list_of_output.append((Process.pos0((hexhexnums[str(letter.upper())]))))
+                    return ((Process.pos3(list_of_output[0]))+Process.pos2(list_of_output[1]))+(Process.pos1(list_of_output[2]))+(list_of_output[3])
+
+            if lenght == 5:
+                if False in Process.is_Hex(num):
+                    return 'None = 5 and false'
+                else:
+                    user_string = num
+                    list_of_output = []
+                    for letter in user_string:
+                        list_of_output.append((Process.pos0((hexhexnums[str(letter.upper())]))))
+                    return ((Process.pos4(list_of_output[0]))+(Process.pos3(list_of_output[1]))+Process.pos2(list_of_output[2]))+(Process.pos1(list_of_output[3]))+(list_of_output[4])
+            
+            if lenght == 6:
+                if False in Process.is_Hex(num):
+                    return 'None = 6 and false'
+                else:
+                    user_string = num
+                    list_of_output = []
+                    for letter in user_string:
+                        list_of_output.append((Process.pos0((hexhexnums[str(letter.upper())]))))
+                    return ((Process.pos5(list_of_output[0])) + (Process.pos4(list_of_output[1]))+(Process.pos3(list_of_output[2]))+Process.pos2(list_of_output[3]))+(Process.pos1(list_of_output[4]))+(list_of_output[5])
+        
+            if lenght == 7:
+                if False in Process.is_Hex(num):
+                    return 'None = 7 and false'
+                else:
+                    user_string = num
+                    list_of_output = []
+                    for letter in user_string:
+                        list_of_output.append((Process.pos0((hexhexnums[str(letter.upper())]))))
+                    return ((Process.pos6(list_of_output[0])) + (Process.pos5(list_of_output[1])) + (Process.pos4(list_of_output[2]))+(Process.pos3(list_of_output[3]))+Process.pos2(list_of_output[4]))+(Process.pos1(list_of_output[5]))+(list_of_output[6])
+        
 
             else:
                 return 'None'
@@ -87,9 +135,9 @@ print ('example usage')
 print ('*********************')
 print ('')
 Answer = Process()
-hexnum = 'C'
+hexnum = '123456A'
 result = Answer.hexToDec(hexnum)
-print ('Result is:')
+print ('Result for number ' + hexnum +' is:')
 print (result)
 print ('*********************')
 print ('')
@@ -97,8 +145,7 @@ print ('')
 print ('validation of the result')
 print ('*********************')
 print ('')
-##print (int(hexnum, 16))
-
+print (int(hexnum, 16))
 
 ## reference code
 

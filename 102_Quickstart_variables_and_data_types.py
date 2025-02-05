@@ -20,7 +20,7 @@ print ('1'+'1')
 
 #print a variable
 print ('Print variables')
-print ('x=5 then print (x)')
+print ('x=5 then print (x)= ' + str(x))
 print (x)
 
 #Data types
@@ -32,7 +32,9 @@ print ('-------')
 print ('Data Type number integer')
 print (str('5 is data type ')+str(type (5)))
 print ('Variable x contains '+str(str(x)+' that is data type ')+str(type (x)))
-
+print (x==y)
+print(x>y)
+print(x>=y)
 #Float
 print ('-------')
 print ('Data Type number float')
@@ -74,7 +76,7 @@ print (str('Good is data type ')+str(type ('Good')))
 print ('Variable a contains '+str(str(a)+' that is data type ')+str(type (a)))
 print (str('Good Morning is data type ')+str(type ('Good Morning')))
 
-#String
+#Complex numbers
 print ('-------')
 print ('Data Type Complex numbers')
 print (str('2j is data type ')+str(type (2j)))

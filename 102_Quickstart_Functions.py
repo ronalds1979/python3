@@ -8,7 +8,7 @@ def space_traces ():
 
 #Functions
 print ('Functions')
-print ('sintax function_name (arguments)')
+print ('syntax function_name (arguments)')
 print ("e.g print('Hello, world')")
 
 space_lines()
