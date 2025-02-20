@@ -1,0 +1,109 @@
+#functions to add space lines and traces
+
+def space_lines ():
+    return print('')
+
+def space_traces ():
+    print('--------------------------------------------------------')
+
+def divider_results():
+    space_lines()
+    space_traces()
+    space_lines()
+
+#  tuples and sets
+divider_results()
+# sets
+print ('Sets')
+print (
+        '''
+        Declared with curly brackes {}
+        All elements are unique. It can be used to deduplicate lists
+        The order doesn't matter. Attention elements on your list could not come in the same order
+        It is a random pile
+        You can add elements to a set
+        '''
+        )
+mySet = {'a', 'b', 'c'}
+print ('Set have no specific order')
+print (mySet)
+print (sorted(mySet)) # sorted function order a set
+
+mySet = set(['a', 'b', 'c']) # set object constructor
+print (mySet)
+print (sorted(mySet)) # sorted function order a set
+
+mySet = set(('a', 'b', 'c')) # using a tuple
+print (mySet)
+print (sorted(mySet)) # sorted function order a set
+
+print ('Removing duplicated')
+myList = ['a', 'b', 'b', 'c', 'c']
+print (myList)
+print (sorted(myList))
+myList = list(set(myList))
+print (myList)
+print (sorted(myList))
+
+print('The set object is not subscriptable. You cannot refer to an element of a set. You cannot use a slice syntax for a set')
+#print (mySet[0])
+
+print ('Add elements to a set')
+print (mySet)
+print (sorted(mySet)) # sorted function order a set
+print ('add d')
+mySet.add('d')
+print (mySet)
+print (sorted(mySet)) # sorted function order a set
+
+print ('Check if element is on my set')
+print (mySet)
+print (sorted(mySet)) # sorted function order a set
+print ('check a')
+print ('a' in mySet) 
+print ('check z')
+print ('z' in mySet) 
+print ('len of my set')
+print (len(mySet)) 
+print ('pop can be used to remove an element but will be a randon element')
+while len(mySet):
+    print (mySet.pop()) 
+print ('removing an specific element in a set')
+mySet = {'a', 'b', 'c'}
+print (mySet)
+print ('Discard a')
+mySet.discard('a')
+print (mySet)
+
+
+divider_results()
+#tuples
+
+print ('Tuples')
+print (
+        '''
+        Declared with parentheses ()
+        They are like lists
+        There is order
+        It is subscriptable
+        You cannot add elements to a tuple or modify it
+        Why to use Tuples?
+        More efficient than lists
+        They don't grow or change
+        Store compactly in memory
+        '''
+        )
+
+def returnMultipleValues():
+    return 1,2,3
+print ('a function return a tuple data structure')
+print (type(returnMultipleValues()))
+divider_results()
+print ('unpacking values')
+a, b, c = returnMultipleValues()
+print(a)
+print(b)
+print(c)
+
+
+divider_results()

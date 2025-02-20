@@ -1,0 +1,118 @@
+#functions to add space lines and traces
+
+def space_lines ():
+    return print('')
+
+def space_traces ():
+    print('--------------------------------------------------------')
+
+def divider_results():
+    space_lines()
+    space_traces()
+    space_lines()
+
+from collections import defaultdict # import defauldict
+
+
+#  Dictionaries
+divider_results()
+
+print ('Dictionaries')
+print (
+        '''
+        
+        
+        
+        
+        
+        '''
+        )
+
+print ('the comma after last entry is not required, but it is a convention')
+animals = {
+    'a' : 'aardvark',
+    'b' : 'bear',
+    'c' : 'cat',
+}
+print(animals)
+print ("print the element 'a' from animals dictionary")
+print (animals['a'])
+
+print(animals)
+print ("add an element 'd' = dog to animals dictionary")
+animals['d'] = 'dog'
+print(animals)
+
+print ("modify element 'a' to antelope in animals dictionary")
+animals['a'] = 'antelope'
+print(animals)
+print ('animal keys')
+print(animals.keys())
+print('animal values')
+print(animals.values())
+print('convert dictionary keys to list')
+print(list(animals.keys()))
+
+print('get function for a dictionary element')
+print ('there is no e on dictionary')
+print(animals.get('e')) #return None
+print('there is no e on the dictionary, but show the parameter provided elephant')
+print(animals.get('e', 'elephant')) # return elephant since e key does not exists
+print('there is a d for dog in dictionary then it returns dog')
+print(animals.get('d', 'elephant')) # return d dog since there is an entry in the dictionary
+print('len of dictionary')
+print(len(animals))
+
+print('a dictionary of lists')
+animals = {
+    'a' : ['aardvark','antelope'],
+    'b' : ['bear'],
+    'c' : ['cat'],
+}
+print(animals)
+print ('animal keys')
+print(animals.keys())
+print('animal values')
+print(animals.values())
+print(len(animals))
+
+print('add a new entry in the dictionary bison for b')
+animals['b'].append('bison')
+print(animals)
+print ('animal keys')
+print(animals.keys())
+print('animal values')
+print(animals.values())
+print(len(animals))
+
+print('add a new entry in the dictionary d and dog')
+animals['d']=['dog']
+print(animals)
+print ('animal keys')
+print(animals.keys())
+print('animal values')
+print(animals.values())
+print(len(animals))
+
+print('add a new entry in the dictionary d and dog but verify if it already exists before')
+if 'd' not in animals:
+    animals['d']=['dog']
+animals['c'].append('cat')
+print(animals)
+print ('animal keys')
+print(animals.keys())
+print('animal values')
+print(animals.values())
+print(len(animals))
+
+divider_results()
+
+print('defaultdict')
+animals = defaultdict(list) # define the type of object
+print(animals)
+animals['e'].append('elephant')
+print(animals)
+animals['e'].append('emu')
+print(animals)
+print(animals['f'])
+print(animals['e'])
