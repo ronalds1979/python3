@@ -1,59 +1,25 @@
+# Python code​​​​​​‌‌​​‌​​‌‌​‌‌​‌‌‌​‌​‌​‌‌‌​ below
 class Answer:
-
-    def __init__(self):
-        return 'None'
     def encodeString(stringVal):
-        #print (str(len(stringVal)) +' encoded')
-        len_start = len(stringVal)
-        i=0
-        count_unique_letter = 0
-        my_dictionary = {
-                
-                        }
-        while i < len_start:
-            #print (stringVal[i])
-            if i == 0:
-                letter = stringVal[i]
-                count_number_repeated_letter = 1
-                #print ('equal 0 count_number_repeated_letter equal 1')
-                #print ((str(stringVal[i]))+ ' count_number_repeated_letter ' + str(count_number_repeated_letter))
-            if i > 0:
-                if letter == stringVal[i]:
-                    count_number_repeated_letter = count_number_repeated_letter  + 1
-                    #print ((str(letter))+ ', ' + str(count_number_repeated_letter))
-                    #print ((str(stringVal[i]))+ ' count_number_repeated_letter ' + str(count_number_repeated_letter))
-                    #print (count_number_repeated_letter)
-                else:
-                    #print ((str(count_unique_letter))+", '"+(str(letter))+ "', " + str(count_number_repeated_letter))
-                    my_dictionary[str(letter)] = count_number_repeated_letter
-                    count_number_repeated_letter = 1
-                    letter = stringVal[i]
-                    #print (count_unique_letter)
-                    count_unique_letter = count_unique_letter+1
-                    
-            #print ((str(letter))+ ', ' + str(count_number_repeated_letter))
-            i = i+1   
-        my_dictionary[str(letter)] = count_number_repeated_letter
-        #print(list(my_dictionary.items()))
-        #last = ((str(count_unique_letter))+", '"+(str(letter))+ "', " + str(count_number_repeated_letter))
-        return (list(my_dictionary.items()))
+        encodedList = [] # create a list
+        prevChar = stringVal[0] # set prevChar as first char
+        count = 0
+        for char in stringVal:
+            if prevChar != char:
+                encodedList.append((prevChar, count))
+                count = 0
+            prevChar = char
+            count = count + 1
 
-
-
+        encodedList.append((prevChar, count))
+        return encodedList
+    
     def decodeString(encodedList):
-        Letter_List = stringVal
-        result = ''
-        #print (Letter_List)
-        Letters = {key: value for key, value in Letter_List}
-        #print([key * value for item in Letters])
-        #print (Letters)
-        #[2*item for item in myList]
-        for key, value in Letters.items():
-        # Multiply the value (stringVal) by the key and concatenate to the result stringVal
-            result += value * key
-        return result
+        decodeStr = ''
+        for item in encodedList:
+            decodeStr = decodeStr + item[0] * item[1]
+        return decodeStr
 
-# use the class
 
 # This is an example of how your code will be called.
 # Your function should return the factorial of the number.
@@ -97,8 +63,11 @@ art = '''
                                                                                  
 
 '''
-encoded = Answer.encodestringVal(art)
-decoded = Answer.decodestringVal(encoded)
+encoded = Answer.encodeString(art)
+decoded = Answer.decodeString(encoded)
 
 print (encoded)
-print(decoded)
+print ('')
+print ('------------------------------------')
+print ('')
+print (decoded)
